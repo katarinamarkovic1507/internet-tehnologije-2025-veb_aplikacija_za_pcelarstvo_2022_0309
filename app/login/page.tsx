@@ -1,5 +1,9 @@
 "use client";
 
+import { Input } from "../components/Input";
+import { Button } from "../components/Button";
+
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -66,36 +70,26 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} style={{ display: "grid", gap: 12 }}>
           <label style={{ display: "grid", gap: 6 }}>
             <span style={{ opacity: 0.8 }}>Email</span>
-            <input
+            <Input
               type="email"
               placeholder="test@test.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              style={{
-                padding: "10px 12px",
-                borderRadius: 10,
-                border: "1px solid #cfcfcf",
-                outline: "none",
-              }}
             />
+
           </label>
 
           <label style={{ display: "grid", gap: 6 }}>
             <span style={{ opacity: 0.8 }}>Lozinka</span>
-            <input
+            <Input
               type="password"
               placeholder="123456"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              style={{
-                padding: "10px 12px",
-                borderRadius: 10,
-                border: "1px solid #cfcfcf",
-                outline: "none",
-              }}
             />
+
           </label>
 
           {error && (
@@ -104,19 +98,10 @@ export default function LoginPage() {
             </div>
           )}
 
-          <button
-            type="submit"
-            disabled={loading}
-            style={{
-              padding: "10px 12px",
-              borderRadius: 10,
-              border: "1px solid #cfcfcf",
-              cursor: loading ? "not-allowed" : "pointer",
-              fontWeight: 600,
-            }}
-          >
+          <Button type="submit" disabled={loading}>
             {loading ? "Logovanje..." : "Login"}
-          </button>
+          </Button>
+
         </form>
       </div>
     </div>
